@@ -11,3 +11,8 @@ antsRegistration -d $dim \
                        -o [${nm},${nm}_diff.nii.gz,${nm}_inv.nii.gz]
 ANTSJacobian 2 CIRC0Warp.nii.gz /tmp/circA 0 0 0
 ./rcalc.R
+# compare to
+CreateJacobianDeterminantImage 2 CIRC0Warp.nii.gz /tmp/circAjacobian.nii.gz 0 0
+./rcalc.R
+CreateJacobianDeterminantImage 2 CIRC0Warp.nii.gz /tmp/circAjacobian.nii.gz 0 1
+./rcalc.R
