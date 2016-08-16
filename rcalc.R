@@ -1,8 +1,11 @@
 #!/usr/bin/env Rscript
+args<-commandArgs(TRUE)
 library(ANTsR)
 j=antsImageRead("/tmp/circAjacobian.nii.gz")
-circ = antsImageRead( "circ1.nii.gz" )
-circ2 = antsImageRead( "circ2.nii.gz" )
-print(( sum( j[ circ == 1 ] / sum( circ == 1 ) ) ) )
-print( sum(  sum( circ2 == 1 )/ sum( circ == 1 ) ) )
-
+circ = antsImageRead( args[1] )
+circ2 = antsImageRead( args[2])
+print( args[3] )
+myjcalc = sum( j[ circ == 1 ] / sum( circ == 1 ) )
+print(paste("Jacobian-based ratio", myjcalc ) )
+myscalc = sum(  sum( circ2 == 1 )/ sum( circ == 1 ) )
+print(paste("Segmentation-based ratio", myscalc ) )
