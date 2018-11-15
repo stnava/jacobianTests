@@ -2,6 +2,8 @@
 very basic test of jacobian
 should get a value around 2.14
 
+> In conclusion, the sum of the jacobian within the object in the template space -- multiplied by the product of the image spacing -- approximates the volume of the object within the moving image.  Assuming you have only applied the SyN transformation by itself.
+
 the rcalc.R compares the following values:
 
 * the ratio of volumes
